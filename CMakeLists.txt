@@ -11,12 +11,20 @@ endif()
 
 project ("OSLab2")
 
+include_directories(${CMAKE_SOURCE_DIR}/include)
+
+add_library(addons src/interface.cpp src/comunication.cpp)
+
+link_libraries(addons)
+
 # Включите подпроекты.
 add_subdirectory(src)
 
+add_subdirectory(tests/interface)
 
 
-set(CXX_STANDARD 98)
+
+set(CMAKE_CXX_STANDARD 98)
 
 # set(BOOST_ROOT "C:\\Program Files\\boost\\boost_1_87_0\\tools\\boost_install")
 # set(Boost_DIR "C:\\Program\ Files\\boost\\boost_1_87_0")
