@@ -1,8 +1,4 @@
-cmake_minimum_required(VERSION 4.0)
-project(TestMinMax)
-
-set(CXX_STANDARD 14)
-set(CXX_STANDARD_REQUIRED ON)
+# GoogleTest requires at least C++14
 
 include(FetchContent)
 FetchContent_Declare(
@@ -13,18 +9,13 @@ FetchContent_Declare(
 set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(googletest)
 
+#test
 enable_testing()
 
-
-
 add_executable(min_max_test min_max.cpp)
-
 target_link_libraries(min_max_test addons)
-
-# kolhoz
-include_directories(${CMAKE_SOURCE_DIR}/include)
-
 target_link_libraries(min_max_test GTest::gtest_main)
+set_property(TARGET min_max_test PROPERTY CXX_STANDARD 14)
 
 include(GoogleTest)
 gtest_discover_tests(min_max_test)
