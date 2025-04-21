@@ -7,3 +7,4 @@ out
 bin
 .venv
 vcpkg_installed
+*Coverage*

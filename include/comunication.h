@@ -1,7 +1,7 @@
 struct comunication
 {
-    const void* argument;
-    void* result;
+    const void* argument = nullptr;
+    void* result = nullptr;
 
     ~comunication();
 };

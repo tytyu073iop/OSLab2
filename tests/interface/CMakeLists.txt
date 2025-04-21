@@ -17,5 +17,11 @@ target_link_libraries(min_max_test addons)
 target_link_libraries(min_max_test GTest::gtest_main)
 set_property(TARGET min_max_test PROPERTY CXX_STANDARD 14)
 
+add_executable(avg_test avg.cpp)
+target_link_libraries(avg_test addons)
+target_link_libraries(avg_test GTest::gtest_main)
+set_property(TARGET avg_test PROPERTY CXX_STANDARD 14)
+
 include(GoogleTest)
 gtest_discover_tests(min_max_test)
+gtest_discover_tests(avg_test)

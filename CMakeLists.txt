@@ -25,6 +25,7 @@ add_executable(Main src/main.cpp)
 target_link_libraries(Main addons)
 
 add_subdirectory(tests/interface)
+add_subdirectory(tests/communication)
 
 
 

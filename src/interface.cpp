@@ -7,9 +7,20 @@
 // template<typename T>
 DWORD WINAPI min_max(LPVOID communicati)
 {
+    if (communicati == NULL || communicati == nullptr) {
+        return 2;
+    }
     comunication* comm = reinterpret_cast<comunication*>(communicati);
+    
+    if (comm->argument == nullptr) {
+        return 2;
+    }
 
     const vector<int>* v = reinterpret_cast<const vector<int>*>(comm->argument);
+
+    if (v->size == 0) {
+        return 1;
+    }
 
     int min = v->v[0];
     int max = v->v[0];
@@ -36,14 +47,25 @@ DWORD WINAPI min_max(LPVOID communicati)
 
 DWORD WINAPI average(LPVOID communicati)
 {
+    if (communicati == NULL || communicati == nullptr) {
+        return 2;
+    }
     comunication* comm = reinterpret_cast<comunication*>(communicati);
 
+    if (comm->argument == nullptr) {
+        return 2;
+    }
+
     const vector<int>* v = reinterpret_cast<const vector<int>*>(comm->argument);
+
+    if (v->size <= 0) {
+        return 1;
+    }
 
     int sum = 0;
     size_t si = v->size;
 
-    for (size_t i = 1; i < si; i++)
+    for (size_t i = 0; i < si; i++)
     {
         sum += v->v[i];
         Sleep(12);

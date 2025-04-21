@@ -2,5 +2,7 @@
 
 comunication::~comunication()
 {
-    delete result;
+    if (result != nullptr) {
+        delete result;
+    }
 }
